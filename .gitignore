@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# asset build scripts (contain local absolute paths, regenerate offline)
+scripts/
+
+# logs
+*.log
