@@ -335,7 +335,7 @@ function buildGallery(data) {
   });
 
   const section = new Section(stage, (scene) => {
-    const order = ["source", "render", "ours", "vista4d", "recammaster", "trajectorycrafter", "gen3c"];
+    const order = ["source", "render", "ours", "vista4d", "gen3c", "trajectorycrafter", "recammaster"];
     return order
       .filter((m) => scene.files[m])
       .map((m) => {
@@ -367,7 +367,7 @@ function buildYawSweep(data) {
   const valueLabel = document.getElementById("yaw-value");
 
   const section = new Section(stage, (payload) => {
-    const order = ["render", "ours", "gen3c", "vista4d", "recammaster", "trajectorycrafter"];
+    const order = ["render", "ours", "vista4d", "gen3c", "trajectorycrafter", "recammaster"];
     return order
       .filter((m) => payload.methods[m] && payload.methods[m][String(payload.angle)])
       .map((m) => {
