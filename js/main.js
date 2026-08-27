@@ -193,9 +193,10 @@ function makeVideoCard(src, label, kind, overlaySrc) {
 
 /* ----------------------------------------------------- section stage helper */
 class Section {
-  constructor(stageEl, buildCards) {
+  constructor(stageEl, buildCards, onRender) {
     this.stage = stageEl;
     this.buildCards = buildCards; // (data) -> [{card, kind}]
+    this.onRender = onRender || null;
     this.group = new SyncGroup();
     this.bar = null;
     // userPaused is touched ONLY by explicit user actions (the play button);
@@ -274,6 +275,7 @@ class Section {
     this._observer.observe(this.stage);
     // if already visible the callback may arrive async; also kick directly
     if (this.inView) this.autoPlayIfReady();
+    if (this.onRender) this.onRender(grid, cards);
   }
 
   gridClass(n) {
@@ -323,9 +325,14 @@ async function main() {
 /* ----------------------------------------------------------------- gallery */
 function buildGallery(data) {
   const sceneRow = document.getElementById("gallery-scenes");
-  const toolsRow = document.getElementById("gallery-tools");
   const stage = document.getElementById("gallery-stage");
   const GEN_METHODS = ["ours", "vista4d", "recammaster", "trajectorycrafter", "gen3c"];
+
+  const overlayBtn = el("button", { class: "chip toggle overlay-btn-fixed", type: "button", text: "Overlay render" });
+  overlayBtn.addEventListener("click", () => {
+    const on = stage.classList.toggle("show-overlay");
+    overlayBtn.classList.toggle("active", on);
+  });
 
   const section = new Section(stage, (scene) => {
     const order = ["source", "render", "ours", "vista4d", "recammaster", "trajectorycrafter", "gen3c"];
@@ -336,6 +343,12 @@ function buildGallery(data) {
         const overlaySrc = GEN_METHODS.includes(m) && scene.files.render ? scene.files.render : null;
         return { card: makeVideoCard(scene.files[m], METHOD_LABELS[m], kind, overlaySrc) };
       });
+  }, (grid) => {
+    // inject overlay button into the second row, left-aligned
+    const row2 = grid.querySelector(".video-row.center");
+    if (row2 && !row2.contains(overlayBtn)) {
+      row2.appendChild(overlayBtn);
+    }
   });
 
   makeChipRow(
@@ -344,17 +357,6 @@ function buildGallery(data) {
     (item) => section.render(item.scene)
   );
   if (data.gallery.length) section.render(data.gallery[0]);
-
-  // overlay render toggle: ghost-blend the point cloud render over generations
-  const toggleBtn = el("button", { class: "chip toggle", type: "button", text: "Overlay render" });
-  toggleBtn.addEventListener("click", () => {
-    const on = stage.classList.toggle("show-overlay");
-    toggleBtn.classList.toggle("active", on);
-  });
-  toolsRow.appendChild(toggleBtn);
-  toolsRow.appendChild(
-    el("span", { class: "hint-text", text: "Blend the point cloud render at 50% opacity over each generation — misalignment shows up as ghosting." })
-  );
 }
 
 /* --------------------------------------------------------------- yaw sweep */
@@ -394,8 +396,11 @@ function buildYawSweep(data) {
 
   slider.addEventListener("input", () => {
     state.angle = parseInt(slider.value, 10);
-    render();
+    valueLabel.textContent = `±${state.angle}°`;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(render, 200);
   });
+  let debounceTimer;
 
   render();
 }
