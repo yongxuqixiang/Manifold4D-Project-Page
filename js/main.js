@@ -328,7 +328,10 @@ function buildGallery(data) {
   const stage = document.getElementById("gallery-stage");
   const GEN_METHODS = ["ours", "vista4d", "recammaster", "trajectorycrafter", "gen3c"];
 
-  const overlayBtn = el("button", { class: "chip toggle overlay-btn-fixed", type: "button", text: "Overlay render" });
+  const overlayBtn = el("button", { class: "chip toggle overlay-btn-fixed active", type: "button", text: "Overlay render" });
+  const overlayCtrl = el("div", { class: "overlay-ctrl" }, overlayBtn, el("span", { class: "overlay-note", text: "Click to remove the render overlay" }));
+  // overlay is ON by default
+  stage.classList.add("show-overlay");
   overlayBtn.addEventListener("click", () => {
     const on = stage.classList.toggle("show-overlay");
     overlayBtn.classList.toggle("active", on);
@@ -344,10 +347,10 @@ function buildGallery(data) {
         return { card: makeVideoCard(scene.files[m], METHOD_LABELS[m], kind, overlaySrc) };
       });
   }, (grid) => {
-    // inject overlay button into the second row, left-aligned
+    // inject overlay control into the second row, left-aligned
     const row2 = grid.querySelector(".video-row.center");
-    if (row2 && !row2.contains(overlayBtn)) {
-      row2.appendChild(overlayBtn);
+    if (row2 && !row2.contains(overlayCtrl)) {
+      row2.appendChild(overlayCtrl);
     }
   });
 

@@ -296,16 +296,29 @@ section.alt { background: var(--bg-soft); }
   justify-content: center;
 }
 
-.overlay-btn-fixed {
+.overlay-ctrl {
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.overlay-btn-fixed {
   font-size: 0.95rem;
   padding: 9px 20px;
   white-space: nowrap;
 }
 
+.overlay-note {
+  font-size: 0.76rem;
+  color: var(--text-light);
+  white-space: nowrap;
+  text-align: center;
+}
 .video-grid.flex-7 .video-card { width: calc(25% - 12px); }
 
 /* 6 cards -> 3 per row */
@@ -423,6 +436,7 @@ section.alt { background: var(--bg-soft); }
   font-size: 0.85rem;
   color: var(--text-light);
   margin-top: 10px;
+  text-align: center;
 }
 
 /* ---------------------------------------------------------------- yaw sweep */
