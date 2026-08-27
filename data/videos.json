@@ -2,17 +2,31 @@
   "method": "Manifold4D",
   "gallery": [
     {
-      "id": "davis_breakdance-flare__f1",
-      "benchmark": "DAVIS-Traj",
-      "label": "Breakdance",
+      "id": "vista_woman-phone_right-left",
+      "benchmark": "Vista4D-Eval",
+      "label": "Woman Phone",
       "files": {
-        "source": "assets/videos/gallery/davis_breakdance-flare__f1/source.mp4",
-        "render": "assets/videos/gallery/davis_breakdance-flare__f1/render.mp4",
-        "ours": "assets/videos/gallery/davis_breakdance-flare__f1/ours.mp4",
-        "vista4d": "assets/videos/gallery/davis_breakdance-flare__f1/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/davis_breakdance-flare__f1/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/davis_breakdance-flare__f1/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/davis_breakdance-flare__f1/gen3c.mp4"
+        "source": "assets/videos/gallery/vista_woman-phone_right-left/source.mp4",
+        "render": "assets/videos/gallery/vista_woman-phone_right-left/render.mp4",
+        "ours": "assets/videos/gallery/vista_woman-phone_right-left/ours.mp4",
+        "vista4d": "assets/videos/gallery/vista_woman-phone_right-left/vista4d.mp4",
+        "recammaster": "assets/videos/gallery/vista_woman-phone_right-left/recammaster.mp4",
+        "trajectorycrafter": "assets/videos/gallery/vista_woman-phone_right-left/trajectorycrafter.mp4",
+        "gen3c": "assets/videos/gallery/vista_woman-phone_right-left/gen3c.mp4"
+      }
+    },
+    {
+      "id": "vista_room-argue_pedestal-up",
+      "benchmark": "Vista4D-Eval",
+      "label": "Room Argue",
+      "files": {
+        "source": "assets/videos/gallery/vista_room-argue_pedestal-up/source.mp4",
+        "render": "assets/videos/gallery/vista_room-argue_pedestal-up/render.mp4",
+        "ours": "assets/videos/gallery/vista_room-argue_pedestal-up/ours.mp4",
+        "vista4d": "assets/videos/gallery/vista_room-argue_pedestal-up/vista4d.mp4",
+        "recammaster": "assets/videos/gallery/vista_room-argue_pedestal-up/recammaster.mp4",
+        "trajectorycrafter": "assets/videos/gallery/vista_room-argue_pedestal-up/trajectorycrafter.mp4",
+        "gen3c": "assets/videos/gallery/vista_room-argue_pedestal-up/gen3c.mp4"
       }
     },
     {
@@ -27,6 +41,20 @@
         "recammaster": "assets/videos/gallery/davis_snowboard__f1/recammaster.mp4",
         "trajectorycrafter": "assets/videos/gallery/davis_snowboard__f1/trajectorycrafter.mp4",
         "gen3c": "assets/videos/gallery/davis_snowboard__f1/gen3c.mp4"
+      }
+    },
+    {
+      "id": "davis_breakdance-flare__f1",
+      "benchmark": "DAVIS-Traj",
+      "label": "Breakdance",
+      "files": {
+        "source": "assets/videos/gallery/davis_breakdance-flare__f1/source.mp4",
+        "render": "assets/videos/gallery/davis_breakdance-flare__f1/render.mp4",
+        "ours": "assets/videos/gallery/davis_breakdance-flare__f1/ours.mp4",
+        "vista4d": "assets/videos/gallery/davis_breakdance-flare__f1/vista4d.mp4",
+        "recammaster": "assets/videos/gallery/davis_breakdance-flare__f1/recammaster.mp4",
+        "trajectorycrafter": "assets/videos/gallery/davis_breakdance-flare__f1/trajectorycrafter.mp4",
+        "gen3c": "assets/videos/gallery/davis_breakdance-flare__f1/gen3c.mp4"
       }
     },
     {
@@ -58,20 +86,6 @@
       }
     },
     {
-      "id": "vista_woman-phone_right-left",
-      "benchmark": "Vista4D-Eval",
-      "label": "Woman Phone",
-      "files": {
-        "source": "assets/videos/gallery/vista_woman-phone_right-left/source.mp4",
-        "render": "assets/videos/gallery/vista_woman-phone_right-left/render.mp4",
-        "ours": "assets/videos/gallery/vista_woman-phone_right-left/ours.mp4",
-        "vista4d": "assets/videos/gallery/vista_woman-phone_right-left/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/vista_woman-phone_right-left/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/vista_woman-phone_right-left/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/vista_woman-phone_right-left/gen3c.mp4"
-      }
-    },
-    {
       "id": "vista_couple-hug_crane-above",
       "benchmark": "Vista4D-Eval",
       "label": "Couple Hug",
@@ -83,20 +97,6 @@
         "recammaster": "assets/videos/gallery/vista_couple-hug_crane-above/recammaster.mp4",
         "trajectorycrafter": "assets/videos/gallery/vista_couple-hug_crane-above/trajectorycrafter.mp4",
         "gen3c": "assets/videos/gallery/vista_couple-hug_crane-above/gen3c.mp4"
-      }
-    },
-    {
-      "id": "vista_room-argue_pedestal-up",
-      "benchmark": "Vista4D-Eval",
-      "label": "Room Argue",
-      "files": {
-        "source": "assets/videos/gallery/vista_room-argue_pedestal-up/source.mp4",
-        "render": "assets/videos/gallery/vista_room-argue_pedestal-up/render.mp4",
-        "ours": "assets/videos/gallery/vista_room-argue_pedestal-up/ours.mp4",
-        "vista4d": "assets/videos/gallery/vista_room-argue_pedestal-up/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/vista_room-argue_pedestal-up/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/vista_room-argue_pedestal-up/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/vista_room-argue_pedestal-up/gen3c.mp4"
       }
     }
   ],

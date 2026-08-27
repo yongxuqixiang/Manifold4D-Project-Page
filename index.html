@@ -6,7 +6,7 @@
   <title>Manifold4D: Denoising on Point Cloud Rendered Manifolds for Video Re-shooting</title>
   <meta name="description" content="Manifold4D re-shoots a monocular video along a user-specified camera trajectory by mixing the point cloud render directly into the initial noise of flow matching.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -95,7 +95,7 @@
 
 <!-- ================================================================ gallery -->
 <section id="results" class="alt">
-  <div class="container container-wide">
+  <div class="container">
     <h2 class="section-title">Results Comparison<span class="bar"></span></h2>
     <p class="section-desc">
       Re-shots produced from the same source video and the same target trajectory.
@@ -107,6 +107,8 @@
     </p>
     <div class="filter-row" id="gallery-scenes"></div>
     <div class="filter-row" id="gallery-tools"></div>
+  </div>
+  <div class="container container-wide">
     <div id="gallery-stage"></div>
   </div>
 </section>
@@ -138,7 +140,7 @@
 
 <!-- ================================================================ yaw sweep -->
 <section id="yaw" class="alt">
-  <div class="container container-wide">
+  <div class="container">
     <h2 class="section-title">Scaling Beyond the Training Range<span class="bar"></span></h2>
     <p class="section-desc">
       Training trajectories sweep at most ±60° of yaw. Here the total yaw amplitude grows
@@ -153,25 +155,28 @@
       <input type="range" id="yaw-slider" min="10" max="90" step="10" value="10">
       <div class="yaw-value" id="yaw-value">±10°</div>
     </div>
+  </div>
+  <div class="container container-wide">
     <div id="yaw-stage"></div>
 
-    <div class="figure-frame">
-      <img src="assets/images/yaw_magnitude_absolute.png" alt="Camera-control error under growing yaw amplitude">
-      <p class="figure-caption">
-        <b>Control error under growing camera motion.</b> Manifold4D maintains the
-        lowest rotation and translation error at almost every yaw amplitude, staying
-        close to the point cloud render, while conditioning-based methods degrade
-        markedly.
-      </p>
-    </div>
-
-    <div class="figure-frame">
-      <img src="assets/images/yaw_magnitude_quality.png" alt="Visual quality under growing yaw amplitude">
-      <p class="figure-caption">
-        <b>Visual quality under growing camera motion.</b> Aesthetic and imaging
-        quality likewise remains the highest, especially at large amplitudes. Red tick
-        labels mark the yaw amplitudes of DAVIS-Traj.
-      </p>
+    <div class="figure-row">
+      <div class="figure-frame">
+        <img src="assets/images/yaw_magnitude_absolute.png" alt="Camera-control error under growing yaw amplitude">
+        <p class="figure-caption">
+          <b>Control error under growing camera motion.</b> Manifold4D maintains the
+          lowest rotation and translation error at almost every yaw amplitude, staying
+          close to the point cloud render, while conditioning-based methods degrade
+          markedly.
+        </p>
+      </div>
+      <div class="figure-frame">
+        <img src="assets/images/yaw_magnitude_quality.png" alt="Visual quality under growing yaw amplitude">
+        <p class="figure-caption">
+          <b>Visual quality under growing camera motion.</b> Aesthetic and imaging
+          quality likewise remains the highest, especially at large amplitudes. Red tick
+          labels mark the yaw amplitudes of DAVIS-Traj.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -258,6 +263,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

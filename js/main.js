@@ -242,7 +242,17 @@ class Section {
 
     const cards = this.buildCards(data);
     const grid = el("div", { class: "video-grid " + (this.gridClass(cards.length) || "") });
-    cards.forEach((c) => grid.appendChild(c.card));
+    if (cards.length === 7) {
+      // 4 edge-to-edge + 3 centered underneath
+      const row1 = el("div", { class: "video-row edge" });
+      const row2 = el("div", { class: "video-row center" });
+      cards.slice(0, 4).forEach((c) => row1.appendChild(c.card));
+      cards.slice(4).forEach((c) => row2.appendChild(c.card));
+      grid.appendChild(row1);
+      grid.appendChild(row2);
+    } else {
+      cards.forEach((c) => grid.appendChild(c.card));
+    }
     // main videos first, then overlays — all kept in one sync group
     const videos = cards.flatMap((c) =>
       Array.from(c.card.querySelectorAll(".video-frame video"))
