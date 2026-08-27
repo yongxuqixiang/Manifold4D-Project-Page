@@ -171,6 +171,17 @@
             "70": "assets/videos/yaw/bear/yaw70_trajectorycrafter.mp4",
             "80": "assets/videos/yaw/bear/yaw80_trajectorycrafter.mp4",
             "90": "assets/videos/yaw/bear/yaw90_trajectorycrafter.mp4"
+          },
+          "recammaster": {
+            "10": "assets/videos/yaw/bear/yaw10_recammaster.mp4",
+            "20": "assets/videos/yaw/bear/yaw20_recammaster.mp4",
+            "30": "assets/videos/yaw/bear/yaw30_recammaster.mp4",
+            "40": "assets/videos/yaw/bear/yaw40_recammaster.mp4",
+            "50": "assets/videos/yaw/bear/yaw50_recammaster.mp4",
+            "60": "assets/videos/yaw/bear/yaw60_recammaster.mp4",
+            "70": "assets/videos/yaw/bear/yaw70_recammaster.mp4",
+            "80": "assets/videos/yaw/bear/yaw80_recammaster.mp4",
+            "90": "assets/videos/yaw/bear/yaw90_recammaster.mp4"
           }
         }
       },
@@ -232,6 +243,17 @@
             "70": "assets/videos/yaw/dog_white/yaw70_trajectorycrafter.mp4",
             "80": "assets/videos/yaw/dog_white/yaw80_trajectorycrafter.mp4",
             "90": "assets/videos/yaw/dog_white/yaw90_trajectorycrafter.mp4"
+          },
+          "recammaster": {
+            "10": "assets/videos/yaw/dog_white/yaw10_recammaster.mp4",
+            "20": "assets/videos/yaw/dog_white/yaw20_recammaster.mp4",
+            "30": "assets/videos/yaw/dog_white/yaw30_recammaster.mp4",
+            "40": "assets/videos/yaw/dog_white/yaw40_recammaster.mp4",
+            "50": "assets/videos/yaw/dog_white/yaw50_recammaster.mp4",
+            "60": "assets/videos/yaw/dog_white/yaw60_recammaster.mp4",
+            "70": "assets/videos/yaw/dog_white/yaw70_recammaster.mp4",
+            "80": "assets/videos/yaw/dog_white/yaw80_recammaster.mp4",
+            "90": "assets/videos/yaw/dog_white/yaw90_recammaster.mp4"
           }
         }
       }

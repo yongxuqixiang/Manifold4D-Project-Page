@@ -13,7 +13,10 @@
 <!-- ================================================================ hero -->
 <header class="hero">
   <div class="container">
-    <h1>Manifold4D: Denoising on Point Cloud Rendered<br>Manifolds for Video Re-shooting</h1>
+    <h1 class="hero-title">
+          <span class="hero-name">Manifold4D</span>
+          <span class="hero-sub">Denoising on Point Cloud Rendered Manifolds for Video Re-shooting</span>
+        </h1>
     <p class="subtitle">
       Re-shoot a monocular video along any camera trajectory — by trusting the
       point cloud render <em>exactly once</em>, as the starting point of generation,
@@ -92,16 +95,18 @@
 
 <!-- ================================================================ gallery -->
 <section id="results" class="alt">
-  <div class="container">
-    <h2 class="section-title">Results Gallery<span class="bar"></span></h2>
+  <div class="container container-wide">
+    <h2 class="section-title">Results Comparison<span class="bar"></span></h2>
     <p class="section-desc">
       Re-shots produced from the same source video and the same target trajectory.
       All videos of a scene are synchronized on one timeline — play the reel and
       compare how each method follows the camera and preserves the dynamic subject.
       Baselines with explicit geometry all consume the identical 4D point cloud render.
+      Toggle <b>Overlay render</b> to blend the point cloud render over each generation
+      — misalignment shows up as ghosting.
     </p>
-    <div class="filter-row" id="gallery-filters"></div>
     <div class="filter-row" id="gallery-scenes"></div>
+    <div class="filter-row" id="gallery-tools"></div>
     <div id="gallery-stage"></div>
   </div>
 </section>
@@ -109,7 +114,7 @@
 <!-- ================================================================ method -->
 <section id="method">
   <div class="container">
-    <h2 class="section-title">Method<span class="bar"></span></h2>
+    <h2 class="section-title">Pipeline<span class="bar"></span></h2>
     <p class="section-desc">
       Manifold4D fine-tunes a flow-matching video diffusion transformer
       (Wan2.1-T2V) with a geometry-aware starting point: the point cloud render is
@@ -133,7 +138,7 @@
 
 <!-- ================================================================ yaw sweep -->
 <section id="yaw" class="alt">
-  <div class="container">
+  <div class="container container-wide">
     <h2 class="section-title">Scaling Beyond the Training Range<span class="bar"></span></h2>
     <p class="section-desc">
       Training trajectories sweep at most ±60° of yaw. Here the total yaw amplitude grows
@@ -149,6 +154,25 @@
       <div class="yaw-value" id="yaw-value">±10°</div>
     </div>
     <div id="yaw-stage"></div>
+
+    <div class="figure-frame">
+      <img src="assets/images/yaw_magnitude_absolute.png" alt="Camera-control error under growing yaw amplitude">
+      <p class="figure-caption">
+        <b>Control error under growing camera motion.</b> Manifold4D maintains the
+        lowest rotation and translation error at almost every yaw amplitude, staying
+        close to the point cloud render, while conditioning-based methods degrade
+        markedly.
+      </p>
+    </div>
+
+    <div class="figure-frame">
+      <img src="assets/images/yaw_magnitude_quality.png" alt="Visual quality under growing yaw amplitude">
+      <p class="figure-caption">
+        <b>Visual quality under growing camera motion.</b> Aesthetic and imaging
+        quality likewise remains the highest, especially at large amplitudes. Red tick
+        labels mark the yaw amplitudes of DAVIS-Traj.
+      </p>
+    </div>
   </div>
 </section>
 

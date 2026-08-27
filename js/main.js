@@ -145,14 +145,7 @@ function makePlayerBar(group, onUserAction) {
 }
 
 /* --------------------------------------------------------- video card grid */
-function makeVideoCard(src, label, kind) {
-  const video = el("video", {
-    src,
-    muted: "",
-    playsinline: "",
-    preload: "auto",
-    disablepictureinpicture: "",
-  });
+function attachRetry(video) {
   // retry once on transient load failures (dev servers can hiccup on
   // concurrent range requests); a genuine 404 stops after the first retry
   video.addEventListener("error", () => {
@@ -160,8 +153,41 @@ function makeVideoCard(src, label, kind) {
     video.dataset.retried = "1";
     video.load();
   });
-  const card = el("div", { class: `video-card ${kind || ""}` }, video, el("span", { class: "tag", text: label }));
-  card._video = video;
+}
+
+function makeVideoCard(src, label, kind, overlaySrc) {
+  const main = el("video", {
+    src,
+    muted: "",
+    playsinline: "",
+    preload: "auto",
+    disablepictureinpicture: "",
+  });
+  attachRetry(main);
+
+  const frame = el("div", { class: "video-frame" }, main);
+
+  // optional point cloud render overlay for generation methods
+  if (overlaySrc) {
+    const ov = el("video", {
+      src: overlaySrc,
+      class: "overlay-video",
+      muted: "",
+      playsinline: "",
+      preload: "auto",
+      disablepictureinpicture: "",
+    });
+    attachRetry(ov);
+    frame.appendChild(ov);
+  }
+
+  const card = el(
+    "div",
+    { class: `video-card ${kind || ""}` },
+    frame,
+    el("span", { class: "tag", text: label })
+  );
+  card._video = main;
   return card;
 }
 
@@ -217,7 +243,10 @@ class Section {
     const cards = this.buildCards(data);
     const grid = el("div", { class: "video-grid " + (this.gridClass(cards.length) || "") });
     cards.forEach((c) => grid.appendChild(c.card));
-    const videos = cards.map((c) => c.card._video);
+    // main videos first, then overlays — all kept in one sync group
+    const videos = cards.flatMap((c) =>
+      Array.from(c.card.querySelectorAll(".video-frame video"))
+    );
     this.group.attach(videos);
     this.bar = makePlayerBar(this.group, (wantsPlay) => {
       this.userPaused = !wantsPlay;
@@ -238,8 +267,9 @@ class Section {
   }
 
   gridClass(n) {
+    if (n === 7) return "flex-7";
+    if (n === 6) return "flex-3";
     if (n === 5) return "cols-5";
-    if (n === 6) return "cols-3";
     if (n <= 2) return "cols-2";
     return "";
   }
@@ -282,48 +312,39 @@ async function main() {
 
 /* ----------------------------------------------------------------- gallery */
 function buildGallery(data) {
-  const filterRow = document.getElementById("gallery-filters");
   const sceneRow = document.getElementById("gallery-scenes");
+  const toolsRow = document.getElementById("gallery-tools");
   const stage = document.getElementById("gallery-stage");
+  const GEN_METHODS = ["ours", "vista4d", "recammaster", "trajectorycrafter", "gen3c"];
+
   const section = new Section(stage, (scene) => {
     const order = ["source", "render", "ours", "vista4d", "recammaster", "trajectorycrafter", "gen3c"];
     return order
       .filter((m) => scene.files[m])
       .map((m) => {
         const kind = m === "ours" ? "ours" : m === "source" || m === "render" ? "ref" : "";
-        return { card: makeVideoCard(scene.files[m], METHOD_LABELS[m], kind) };
+        const overlaySrc = GEN_METHODS.includes(m) && scene.files.render ? scene.files.render : null;
+        return { card: makeVideoCard(scene.files[m], METHOD_LABELS[m], kind, overlaySrc) };
       });
   });
 
-  let currentScenes = data.gallery;
-
   makeChipRow(
-    filterRow,
-    [
-      { label: "All", bench: "All" },
-      { label: "DAVIS-Traj", bench: "DAVIS-Traj" },
-      { label: "Vista4D-Eval", bench: "Vista4D-Eval" },
-    ],
-    (item) => {
-      currentScenes = item.bench === "All"
-        ? data.gallery
-        : data.gallery.filter((s) => s.benchmark === item.bench);
-      renderSceneChips();
-    }
+    sceneRow,
+    data.gallery.map((s) => ({ label: s.label, scene: s })),
+    (item) => section.render(item.scene)
   );
+  if (data.gallery.length) section.render(data.gallery[0]);
 
-  function renderSceneChips() {
-    makeChipRow(
-      sceneRow,
-      currentScenes.map((s) => ({
-        label: `${s.label} · ${s.benchmark === "DAVIS-Traj" ? "DAVIS" : "Vista4D"}`,
-        scene: s,
-      })),
-      (item) => section.render(item.scene)
-    );
-    if (currentScenes.length) section.render(currentScenes[0]);
-  }
-  renderSceneChips();
+  // overlay render toggle: ghost-blend the point cloud render over generations
+  const toggleBtn = el("button", { class: "chip toggle", type: "button", text: "Overlay render" });
+  toggleBtn.addEventListener("click", () => {
+    const on = stage.classList.toggle("show-overlay");
+    toggleBtn.classList.toggle("active", on);
+  });
+  toolsRow.appendChild(toggleBtn);
+  toolsRow.appendChild(
+    el("span", { class: "hint-text", text: "Blend the point cloud render at 50% opacity over each generation — misalignment shows up as ghosting." })
+  );
 }
 
 /* --------------------------------------------------------------- yaw sweep */
@@ -334,7 +355,7 @@ function buildYawSweep(data) {
   const valueLabel = document.getElementById("yaw-value");
 
   const section = new Section(stage, (payload) => {
-    const order = ["render", "ours", "gen3c", "vista4d", "trajectorycrafter"];
+    const order = ["render", "ours", "gen3c", "vista4d", "recammaster", "trajectorycrafter"];
     return order
       .filter((m) => payload.methods[m] && payload.methods[m][String(payload.angle)])
       .map((m) => {
