@@ -310,7 +310,7 @@ function makeChipRow(container, items, onPick) {
 async function main() {
   let data;
   try {
-    const res = await fetch("data/videos.json");
+    const res = await fetch("data/videos.json?v=6");
     data = await res.json();
   } catch (err) {
     console.error("Failed to load videos.json", err);
