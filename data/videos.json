@@ -2,20 +2,6 @@
   "method": "Manifold4D",
   "gallery": [
     {
-      "id": "davis_bear__f3",
-      "benchmark": "DAVIS-Traj",
-      "label": "Bear",
-      "files": {
-        "source": "assets/videos/gallery/davis_bear__f3/source.mp4",
-        "render": "assets/videos/gallery/davis_bear__f3/render.mp4",
-        "ours": "assets/videos/gallery/davis_bear__f3/ours.mp4",
-        "vista4d": "assets/videos/gallery/davis_bear__f3/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/davis_bear__f3/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/davis_bear__f3/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/davis_bear__f3/gen3c.mp4"
-      }
-    },
-    {
       "id": "davis_breakdance-flare__f1",
       "benchmark": "DAVIS-Traj",
       "label": "Breakdance",
@@ -27,48 +13,6 @@
         "recammaster": "assets/videos/gallery/davis_breakdance-flare__f1/recammaster.mp4",
         "trajectorycrafter": "assets/videos/gallery/davis_breakdance-flare__f1/trajectorycrafter.mp4",
         "gen3c": "assets/videos/gallery/davis_breakdance-flare__f1/gen3c.mp4"
-      }
-    },
-    {
-      "id": "davis_car-roundabout__f3",
-      "benchmark": "DAVIS-Traj",
-      "label": "Car Roundabout",
-      "files": {
-        "source": "assets/videos/gallery/davis_car-roundabout__f3/source.mp4",
-        "render": "assets/videos/gallery/davis_car-roundabout__f3/render.mp4",
-        "ours": "assets/videos/gallery/davis_car-roundabout__f3/ours.mp4",
-        "vista4d": "assets/videos/gallery/davis_car-roundabout__f3/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/davis_car-roundabout__f3/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/davis_car-roundabout__f3/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/davis_car-roundabout__f3/gen3c.mp4"
-      }
-    },
-    {
-      "id": "davis_dog_white__f1",
-      "benchmark": "DAVIS-Traj",
-      "label": "Dog",
-      "files": {
-        "source": "assets/videos/gallery/davis_dog_white__f1/source.mp4",
-        "render": "assets/videos/gallery/davis_dog_white__f1/render.mp4",
-        "ours": "assets/videos/gallery/davis_dog_white__f1/ours.mp4",
-        "vista4d": "assets/videos/gallery/davis_dog_white__f1/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/davis_dog_white__f1/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/davis_dog_white__f1/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/davis_dog_white__f1/gen3c.mp4"
-      }
-    },
-    {
-      "id": "davis_horsejump-high__f3",
-      "benchmark": "DAVIS-Traj",
-      "label": "Horse Jump",
-      "files": {
-        "source": "assets/videos/gallery/davis_horsejump-high__f3/source.mp4",
-        "render": "assets/videos/gallery/davis_horsejump-high__f3/render.mp4",
-        "ours": "assets/videos/gallery/davis_horsejump-high__f3/ours.mp4",
-        "vista4d": "assets/videos/gallery/davis_horsejump-high__f3/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/davis_horsejump-high__f3/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/davis_horsejump-high__f3/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/davis_horsejump-high__f3/gen3c.mp4"
       }
     },
     {
@@ -86,73 +30,31 @@
       }
     },
     {
-      "id": "vista_avocado-slice_close-crane-above",
-      "benchmark": "Vista4D-Eval",
-      "label": "Avocado Slice",
+      "id": "davis_car-roundabout__f3",
+      "benchmark": "DAVIS-Traj",
+      "label": "Car Roundabout",
       "files": {
-        "source": "assets/videos/gallery/vista_avocado-slice_close-crane-above/source.mp4",
-        "render": "assets/videos/gallery/vista_avocado-slice_close-crane-above/render.mp4",
-        "ours": "assets/videos/gallery/vista_avocado-slice_close-crane-above/ours.mp4",
-        "vista4d": "assets/videos/gallery/vista_avocado-slice_close-crane-above/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/vista_avocado-slice_close-crane-above/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/vista_avocado-slice_close-crane-above/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/vista_avocado-slice_close-crane-above/gen3c.mp4"
+        "source": "assets/videos/gallery/davis_car-roundabout__f3/source.mp4",
+        "render": "assets/videos/gallery/davis_car-roundabout__f3/render.mp4",
+        "ours": "assets/videos/gallery/davis_car-roundabout__f3/ours.mp4",
+        "vista4d": "assets/videos/gallery/davis_car-roundabout__f3/vista4d.mp4",
+        "recammaster": "assets/videos/gallery/davis_car-roundabout__f3/recammaster.mp4",
+        "trajectorycrafter": "assets/videos/gallery/davis_car-roundabout__f3/trajectorycrafter.mp4",
+        "gen3c": "assets/videos/gallery/davis_car-roundabout__f3/gen3c.mp4"
       }
     },
     {
-      "id": "vista_basketball-four_right-left",
-      "benchmark": "Vista4D-Eval",
-      "label": "Basketball",
+      "id": "davis_horsejump-high__f3",
+      "benchmark": "DAVIS-Traj",
+      "label": "Horse Jump",
       "files": {
-        "source": "assets/videos/gallery/vista_basketball-four_right-left/source.mp4",
-        "render": "assets/videos/gallery/vista_basketball-four_right-left/render.mp4",
-        "ours": "assets/videos/gallery/vista_basketball-four_right-left/ours.mp4",
-        "vista4d": "assets/videos/gallery/vista_basketball-four_right-left/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/vista_basketball-four_right-left/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/vista_basketball-four_right-left/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/vista_basketball-four_right-left/gen3c.mp4"
-      }
-    },
-    {
-      "id": "vista_drive-desert_side-fly",
-      "benchmark": "Vista4D-Eval",
-      "label": "Desert Drive",
-      "files": {
-        "source": "assets/videos/gallery/vista_drive-desert_side-fly/source.mp4",
-        "render": "assets/videos/gallery/vista_drive-desert_side-fly/render.mp4",
-        "ours": "assets/videos/gallery/vista_drive-desert_side-fly/ours.mp4",
-        "vista4d": "assets/videos/gallery/vista_drive-desert_side-fly/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/vista_drive-desert_side-fly/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/vista_drive-desert_side-fly/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/vista_drive-desert_side-fly/gen3c.mp4"
-      }
-    },
-    {
-      "id": "vista_fashion-walk_arc-left-right",
-      "benchmark": "Vista4D-Eval",
-      "label": "Fashion Walk",
-      "files": {
-        "source": "assets/videos/gallery/vista_fashion-walk_arc-left-right/source.mp4",
-        "render": "assets/videos/gallery/vista_fashion-walk_arc-left-right/render.mp4",
-        "ours": "assets/videos/gallery/vista_fashion-walk_arc-left-right/ours.mp4",
-        "vista4d": "assets/videos/gallery/vista_fashion-walk_arc-left-right/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/vista_fashion-walk_arc-left-right/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/vista_fashion-walk_arc-left-right/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/vista_fashion-walk_arc-left-right/gen3c.mp4"
-      }
-    },
-    {
-      "id": "vista_park-selfie_crane-above",
-      "benchmark": "Vista4D-Eval",
-      "label": "Park Selfie",
-      "files": {
-        "source": "assets/videos/gallery/vista_park-selfie_crane-above/source.mp4",
-        "render": "assets/videos/gallery/vista_park-selfie_crane-above/render.mp4",
-        "ours": "assets/videos/gallery/vista_park-selfie_crane-above/ours.mp4",
-        "vista4d": "assets/videos/gallery/vista_park-selfie_crane-above/vista4d.mp4",
-        "recammaster": "assets/videos/gallery/vista_park-selfie_crane-above/recammaster.mp4",
-        "trajectorycrafter": "assets/videos/gallery/vista_park-selfie_crane-above/trajectorycrafter.mp4",
-        "gen3c": "assets/videos/gallery/vista_park-selfie_crane-above/gen3c.mp4"
+        "source": "assets/videos/gallery/davis_horsejump-high__f3/source.mp4",
+        "render": "assets/videos/gallery/davis_horsejump-high__f3/render.mp4",
+        "ours": "assets/videos/gallery/davis_horsejump-high__f3/ours.mp4",
+        "vista4d": "assets/videos/gallery/davis_horsejump-high__f3/vista4d.mp4",
+        "recammaster": "assets/videos/gallery/davis_horsejump-high__f3/recammaster.mp4",
+        "trajectorycrafter": "assets/videos/gallery/davis_horsejump-high__f3/trajectorycrafter.mp4",
+        "gen3c": "assets/videos/gallery/davis_horsejump-high__f3/gen3c.mp4"
       }
     },
     {
@@ -167,6 +69,34 @@
         "recammaster": "assets/videos/gallery/vista_woman-phone_right-left/recammaster.mp4",
         "trajectorycrafter": "assets/videos/gallery/vista_woman-phone_right-left/trajectorycrafter.mp4",
         "gen3c": "assets/videos/gallery/vista_woman-phone_right-left/gen3c.mp4"
+      }
+    },
+    {
+      "id": "vista_couple-hug_crane-above",
+      "benchmark": "Vista4D-Eval",
+      "label": "Couple Hug",
+      "files": {
+        "source": "assets/videos/gallery/vista_couple-hug_crane-above/source.mp4",
+        "render": "assets/videos/gallery/vista_couple-hug_crane-above/render.mp4",
+        "ours": "assets/videos/gallery/vista_couple-hug_crane-above/ours.mp4",
+        "vista4d": "assets/videos/gallery/vista_couple-hug_crane-above/vista4d.mp4",
+        "recammaster": "assets/videos/gallery/vista_couple-hug_crane-above/recammaster.mp4",
+        "trajectorycrafter": "assets/videos/gallery/vista_couple-hug_crane-above/trajectorycrafter.mp4",
+        "gen3c": "assets/videos/gallery/vista_couple-hug_crane-above/gen3c.mp4"
+      }
+    },
+    {
+      "id": "vista_room-argue_pedestal-up",
+      "benchmark": "Vista4D-Eval",
+      "label": "Room Argue",
+      "files": {
+        "source": "assets/videos/gallery/vista_room-argue_pedestal-up/source.mp4",
+        "render": "assets/videos/gallery/vista_room-argue_pedestal-up/render.mp4",
+        "ours": "assets/videos/gallery/vista_room-argue_pedestal-up/ours.mp4",
+        "vista4d": "assets/videos/gallery/vista_room-argue_pedestal-up/vista4d.mp4",
+        "recammaster": "assets/videos/gallery/vista_room-argue_pedestal-up/recammaster.mp4",
+        "trajectorycrafter": "assets/videos/gallery/vista_room-argue_pedestal-up/trajectorycrafter.mp4",
+        "gen3c": "assets/videos/gallery/vista_room-argue_pedestal-up/gen3c.mp4"
       }
     }
   ],
@@ -306,49 +236,5 @@
         }
       }
     ]
-  },
-  "robustness": [
-    {
-      "id": "bear__f2",
-      "label": "Bear",
-      "files": {
-        "source": "assets/videos/robustness/bear__f2/source.mp4",
-        "render_corrupt": "assets/videos/robustness/bear__f2/render_corrupt.mp4",
-        "ours_corrupt": "assets/videos/robustness/bear__f2/ours_corrupt.mp4",
-        "ours_clean": "assets/videos/robustness/bear__f2/ours_clean.mp4"
-      }
-    },
-    {
-      "id": "cows__f2",
-      "label": "Cows",
-      "files": {
-        "source": "assets/videos/robustness/cows__f2/source.mp4",
-        "render_corrupt": "assets/videos/robustness/cows__f2/render_corrupt.mp4",
-        "ours_corrupt": "assets/videos/robustness/cows__f2/ours_corrupt.mp4",
-        "ours_clean": "assets/videos/robustness/cows__f2/ours_clean.mp4"
-      }
-    },
-    {
-      "id": "hike__f2",
-      "label": "Hike",
-      "files": {
-        "source": "assets/videos/robustness/hike__f2/source.mp4",
-        "render_corrupt": "assets/videos/robustness/hike__f2/render_corrupt.mp4",
-        "ours_corrupt": "assets/videos/robustness/hike__f2/ours_corrupt.mp4",
-        "ours_clean": "assets/videos/robustness/hike__f2/ours_clean.mp4"
-      }
-    },
-    {
-      "id": "horsejump-high__f3",
-      "label": "Horse Jump",
-      "files": {
-        "source": "assets/videos/robustness/horsejump-high__f3/source.mp4",
-        "render_corrupt": "assets/videos/robustness/horsejump-high__f3/render_corrupt.mp4",
-        "ours_corrupt": "assets/videos/robustness/horsejump-high__f3/ours_corrupt.mp4",
-        "ours_clean": "assets/videos/robustness/horsejump-high__f3/ours_clean.mp4",
-        "gen3c_corrupt": "assets/videos/robustness/horsejump-high__f3/gen3c_corrupt.mp4",
-        "trajcrafter_corrupt": "assets/videos/robustness/horsejump-high__f3/trajcrafter_corrupt.mp4"
-      }
-    }
-  ]
+  }
 }

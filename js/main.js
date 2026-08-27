@@ -10,21 +10,7 @@ const METHOD_LABELS = {
   recammaster: "ReCamMaster",
   trajectorycrafter: "TrajectoryCrafter",
   gen3c: "GEN3C",
-  render_corrupt: "Corrupted render",
-  ours_corrupt: "Manifold4D (corrupted render)",
-  ours_clean: "Manifold4D (clean render)",
-  gen3c_corrupt: "GEN3C (corrupted render)",
-  trajcrafter_corrupt: "TrajectoryCrafter (corrupted render)",
 };
-
-const ROBUST_ORDER = [
-  "source",
-  "render_corrupt",
-  "gen3c_corrupt",
-  "trajcrafter_corrupt",
-  "ours_corrupt",
-  "ours_clean",
-];
 
 function el(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
@@ -291,7 +277,6 @@ async function main() {
 
   buildGallery(data);
   buildYawSweep(data);
-  buildRobustness(data);
   setupBibtex();
 }
 
@@ -382,28 +367,6 @@ function buildYawSweep(data) {
   });
 
   render();
-}
-
-/* -------------------------------------------------------------- robustness */
-function buildRobustness(data) {
-  const sceneRow = document.getElementById("robust-scenes");
-  const stage = document.getElementById("robust-stage");
-
-  const section = new Section(stage, (scene) => {
-    return ROBUST_ORDER
-      .filter((m) => scene.files[m])
-      .map((m) => {
-        const kind = m.startsWith("ours") ? "ours" : m === "source" || m === "render_corrupt" ? "ref" : "";
-        return { card: makeVideoCard(scene.files[m], METHOD_LABELS[m], kind) };
-      });
-  });
-
-  makeChipRow(
-    sceneRow,
-    data.robustness.map((s) => ({ label: s.label, scene: s })),
-    (item) => section.render(item.scene)
-  );
-  if (data.robustness.length) section.render(data.robustness[0]);
 }
 
 /* ----------------------------------------------------------------- bibtex */

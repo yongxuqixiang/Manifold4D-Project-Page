@@ -21,9 +21,9 @@
     </p>
 
     <div class="authors">
-      <a href="mailto:yongqimao@zju.edu.cn">Yongqi Mao</a><sup>1,2</sup>,
-      Zijia Dai<sup>3,2</sup>,
-      Zhishuo Liu<sup>4,2</sup>,
+      Yongqi Mao<sup>1,2</sup>,
+      Zijia Dai<sup>2,3</sup>,
+      Zhishuo Liu<sup>2,4</sup>,
       Wei Xu<sup>2</sup>,
       Kaiwei Wang<sup>1</sup>,
       Guotao Meng<sup>2</sup>
@@ -77,34 +77,14 @@
       </p>
     </div>
 
-    <div class="stat-row">
-      <div class="stat-card">
-        <div class="num">−25% / −27%</div>
-        <div class="what">rotation error vs. strongest baseline<br>(DAVIS-Traj / Vista4D-Eval)</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">−32%</div>
-        <div class="what">translation error<br>vs. strongest baseline</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">on par</div>
-        <div class="what">video fidelity (FID / FVD / VBench)<br>with the strongest baseline</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">63.1%</div>
-        <div class="what">user preference on<br>trajectory following</div>
-      </div>
-    </div>
-
     <div class="figure-frame">
-      <img src="assets/images/teaser_balance_fused.png" alt="Accuracy-quality balance across two benchmarks">
+      <img src="assets/images/teaser.png" alt="Manifold4D teaser">
       <p class="figure-caption">
         <b>Video re-shooting.</b> Given a monocular video and a target camera trajectory,
         Manifold4D re-shoots the video along the new trajectory, achieving the best
         trajectory control among existing methods while preserving visual quality.
-        Left: DAVIS-Traj; right: Vista4D-Eval. The vertical axis averages the VBench
-        aesthetic and imaging quality scores; the horizontal axis is the camera-control
-        error relative to the best method.
+        The vertical axis averages the VBench aesthetic and imaging quality scores;
+        the horizontal axis denotes the camera-control error relative to the best method.
       </p>
     </div>
   </div>
@@ -148,31 +128,6 @@
         visual condition.
       </p>
     </div>
-
-    <div class="method-points">
-      <div class="point-card">
-        <h4>Render into the noise, not the conditions</h4>
-        <p>The pixel-aligned point cloud render is mixed into the initial noise of flow
-        matching, so generation starts from a point-cloud rendered manifold rather than
-        the Gaussian prior.</p>
-      </div>
-      <div class="point-card">
-        <h4>Per-token coverage weighting</h4>
-        <p>Rasterization coverage α interpolates between render+noise where points exist
-        and pure noise in holes, so only uncovered regions require true generation.</p>
-      </div>
-      <div class="point-card">
-        <h4>One visual condition</h4>
-        <p>The source video remains the only visual conditioning stream — no competing
-        render stream to weigh against it at every denoising step.</p>
-      </div>
-      <div class="point-card">
-        <h4>Trusted exactly once</h4>
-        <p>Because diffusion lays down geometry in early steps, injecting it at the start
-        is its most effective use — the network never has to learn how to read the
-        render, and control holds far beyond the training motion range.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -194,22 +149,6 @@
       <div class="yaw-value" id="yaw-value">±10°</div>
     </div>
     <div id="yaw-stage"></div>
-  </div>
-</section>
-
-<!-- ================================================================ robustness -->
-<section id="robustness">
-  <div class="container">
-    <h2 class="section-title">Robustness to Imperfect Geometry<span class="bar"></span></h2>
-    <p class="section-desc">
-      The motion mask is removed at render time, so dynamic points from all frames are
-      stacked together and the rendered subject is smeared — a deliberately corrupted
-      geometric prior. Manifold4D still recovers the correct motion from the source
-      video, while baselines that treat the render as a condition replicate the
-      corruption. The geometric prior guides generation without overriding it.
-    </p>
-    <div class="filter-row" id="robust-scenes"></div>
-    <div id="robust-stage"></div>
   </div>
 </section>
 
