@@ -500,6 +500,7 @@ section.alt { background: var(--bg-soft); }
 .us-table tr:last-child td { border-bottom: none; }
 .us-table .ours-col { background: var(--accent-light); font-weight: 700; color: var(--accent-dark); }
 .us-table .second { text-decoration: underline; text-decoration-color: #b8c2cc; }
+.us-table .best { font-weight: 700; color: var(--accent); }
 
 /* ---------------------------------------------------------------- bibtex */
 .bibtex-box {

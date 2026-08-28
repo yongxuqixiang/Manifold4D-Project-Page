@@ -6,7 +6,7 @@
   <title>Manifold4D: Denoising on Point Cloud Rendered Manifolds for Video Re-shooting</title>
   <meta name="description" content="Manifold4D re-shoots a monocular video along a user-specified camera trajectory by mixing the point cloud render directly into the initial noise of flow matching.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
 
@@ -185,10 +185,10 @@
   <div class="container">
     <h2 class="section-title">User Study<span class="bar"></span></h2>
     <p class="section-desc">
-      Twenty clips (ten per benchmark) were rated by more than one hundred participants
+      Twenty clips (ten per benchmark) were rated by thirty participants
       on three criteria; raters could select multiple methods when hard to distinguish.
-      Manifold4D is preferred on every criterion, with the largest margins on
-      trajectory following and dynamic consistency.
+      Manifold4D leads on trajectory following and dynamic consistency, and ranks
+      second on overall quality behind Vista4D.
     </p>
     <div class="table-scroll">
       <table class="us-table">
@@ -205,27 +205,27 @@
         <tbody>
           <tr>
             <td>Trajectory following</td>
-            <td>2.4%</td>
-            <td>16.7%</td>
-            <td>13.1%</td>
-            <td><span class="second">51.2%</span></td>
-            <td class="ours-col">63.1%</td>
+            <td>1.4%</td>
+            <td>17.0%</td>
+            <td>20.5%</td>
+            <td><span class="second">28.3%</span></td>
+            <td class="ours-col"><span class="best">63.6%</span></td>
           </tr>
           <tr>
             <td>Dynamic consistency</td>
-            <td>3.6%</td>
-            <td>15.5%</td>
-            <td>14.3%</td>
-            <td><span class="second">51.2%</span></td>
-            <td class="ours-col">60.7%</td>
+            <td>1.8%</td>
+            <td><span class="second">15.6%</span></td>
+            <td>9.5%</td>
+            <td>8.7%</td>
+            <td class="ours-col"><span class="best">62.4%</span></td>
           </tr>
           <tr>
             <td>Overall quality</td>
-            <td>2.4%</td>
-            <td>4.8%</td>
-            <td>6.0%</td>
-            <td><span class="second">53.6%</span></td>
-            <td class="ours-col">56.0%</td>
+            <td>12.9%</td>
+            <td>3.2%</td>
+            <td>5.8%</td>
+            <td><span class="best">54.7%</span></td>
+            <td class="ours-col"><span class="second">49.6%</span></td>
           </tr>
         </tbody>
       </table>
@@ -262,6 +262,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=7"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>
