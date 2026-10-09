@@ -230,6 +230,20 @@ section.alt { background: var(--bg-soft); }
   margin-right: auto;
 }
 
+/* demo video */
+.demo-video-wrap {
+  max-width: 960px;
+  margin: 28px auto 0;
+}
+
+.demo-video {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  background: #000;
+}
+
 /* ---------------------------------------------------------------- method bullets */
 .method-points {
   display: grid;

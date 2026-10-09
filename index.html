@@ -6,7 +6,7 @@
   <title>Manifold4D: Denoising on Point Cloud Rendered Manifolds for Video Re-shooting</title>
   <meta name="description" content="Manifold4D re-shoots a monocular video along a user-specified camera trajectory by mixing the point cloud render directly into the initial noise of flow matching.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
 
@@ -40,6 +40,17 @@
       <a class="btn primary" href="https://arxiv.org/abs/2608.28174" target="_blank" rel="noopener">arXiv</a>
       <a class="btn" href="https://github.com/ManifoldTechLtd/Manifold4D" target="_blank" rel="noopener">Code</a>
       <a class="btn" href="#citation">BibTeX</a>
+    </div>
+
+    <div class="demo-video-wrap">
+      <video class="demo-video" controls preload="metadata">
+        <source src="assets/videos/demo.mp4" type="video/mp4">
+      </video>
+      <p class="figure-caption">
+        <b>Demo video.</b> Task setup, qualitative comparison with prior methods
+        (render overlay and failure highlights), the yaw-amplitude sweep, and the
+        method overview.
+      </p>
     </div>
   </div>
 </header>
@@ -81,7 +92,7 @@
     </div>
 
     <div class="figure-frame">
-      <img src="assets/images/teaser.png" alt="Manifold4D teaser">
+      <img src="assets/images/teaser.png?v=2" alt="Manifold4D teaser">
       <p class="figure-caption">
         <b>Video re-shooting.</b> Given a monocular video and a target camera trajectory,
         Manifold4D re-shoots the video along the new trajectory, achieving the best
@@ -124,7 +135,7 @@
     </p>
 
     <div class="figure-frame">
-      <img src="assets/images/pipeline.png" alt="Manifold4D pipeline">
+      <img src="assets/images/pipeline.png?v=2" alt="Manifold4D pipeline">
       <p class="figure-caption">
         <b>Overview.</b> A 4D point cloud is reconstructed from the source video
         (VGGT-Omega depth &amp; poses, SAM3 motion masks), rasterized along the target
@@ -132,6 +143,18 @@
         flow matching is <i>x</i><sub>1</sub> = α·(render + σ·ε) + (1−α)·ε, and
         denoising proceeds toward the target video with the source video as the only
         visual condition.
+      </p>
+    </div>
+
+    <div class="figure-frame">
+      <img src="assets/images/methodv3.png" alt="How Manifold4D differs from prior methods" loading="lazy">
+      <p class="figure-caption">
+        <b>How the render enters denoising.</b> GEN3C and Vista4D feed the point cloud render
+        as an explicit conditioning stream at every denoising step, so the render and the
+        source video compete for the model's trust. Manifold4D instead concatenates the
+        render-derived tokens with the noisy latent once, at the initial step of flow
+        matching, and the source video remains the only visual condition during denoising.
+        ⊕ denotes concatenation at each denoising step.
       </p>
     </div>
   </div>
@@ -158,24 +181,15 @@
   <div class="container container-wide">
     <div id="yaw-stage"></div>
 
-    <div class="figure-row">
-      <div class="figure-frame">
-        <img src="assets/images/yaw_magnitude_absolute.png" alt="Camera-control error under growing yaw amplitude">
-        <p class="figure-caption">
-          <b>Control error under growing camera motion.</b> Manifold4D maintains the
-          lowest rotation and translation error at almost every yaw amplitude, staying
-          close to the point cloud render, while conditioning-based methods degrade
-          markedly.
-        </p>
-      </div>
-      <div class="figure-frame">
-        <img src="assets/images/yaw_magnitude_quality.png" alt="Visual quality under growing yaw amplitude">
-        <p class="figure-caption">
-          <b>Visual quality under growing camera motion.</b> Aesthetic and imaging
-          quality likewise remains the highest, especially at large amplitudes. Red tick
-          labels mark the yaw amplitudes of DAVIS-Traj.
-        </p>
-      </div>
+    <div class="figure-frame">
+      <img src="assets/images/yaw_sweep.png" alt="Control error and visual quality under growing yaw amplitude" loading="lazy">
+      <p class="figure-caption">
+        <b>Control error and visual quality under growing camera motion.</b> Rotation and
+        translation error (left two panels) stay the lowest for Manifold4D at almost every
+        yaw amplitude, while conditioning-based methods degrade markedly; imaging and
+        aesthetic quality (right two panels) likewise remain the highest, especially at
+        large amplitudes. Red tick labels mark the yaw amplitudes of DAVIS-Traj.
+      </p>
     </div>
   </div>
 </section>
