@@ -120,6 +120,18 @@
   </div>
   <div class="container container-wide">
     <div id="gallery-stage"></div>
+
+    <div class="figure-frame">
+      <img src="assets/images/methodv3.png" alt="How Manifold4D differs from prior methods" loading="lazy">
+      <p class="figure-caption">
+        <b>How the render enters denoising.</b> GEN3C and Vista4D feed the point cloud render
+        as an explicit conditioning stream at every denoising step, so the render and the
+        source video compete for the model's trust. Manifold4D instead concatenates the
+        render-derived tokens with the noisy latent once, at the initial step of flow
+        matching, and the source video remains the only visual condition during denoising.
+        ⊕ denotes concatenation at each denoising step.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -143,18 +155,6 @@
         flow matching is <i>x</i><sub>1</sub> = α·(render + σ·ε) + (1−α)·ε, and
         denoising proceeds toward the target video with the source video as the only
         visual condition.
-      </p>
-    </div>
-
-    <div class="figure-frame">
-      <img src="assets/images/methodv3.png" alt="How Manifold4D differs from prior methods" loading="lazy">
-      <p class="figure-caption">
-        <b>How the render enters denoising.</b> GEN3C and Vista4D feed the point cloud render
-        as an explicit conditioning stream at every denoising step, so the render and the
-        source video compete for the model's trust. Manifold4D instead concatenates the
-        render-derived tokens with the noisy latent once, at the initial step of flow
-        matching, and the source video remains the only visual condition during denoising.
-        ⊕ denotes concatenation at each denoising step.
       </p>
     </div>
   </div>
